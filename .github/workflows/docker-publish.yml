@@ -21,8 +21,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t your-dockerhub-username/your-repo-name:latest .
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/ansible-docker-debian:latest .
 
       - name: Push Docker image
         run: |
-          docker push your-dockerhub-username/your-repo-name:latest
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/ansible-docker-debian:latest
