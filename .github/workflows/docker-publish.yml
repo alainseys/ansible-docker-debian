@@ -19,6 +19,14 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
+
+      - name: Test
+        shell: bash
+        env:
+          USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+        run: | 
+          test: "$USERNAME"
+
       - name: Build Docker image
         run: |
           docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/ansible-docker-debian:latest .
